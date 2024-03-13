@@ -3,11 +3,10 @@
 #include <ios>
 #include <vector>
 #include <string>
-using namespace std;
 
-void printVector(vector<double>& numbers);
+void printVector(std::vector<double>& numbers);
 
-void calculateSumAndAverage(vector<double>& numbers) {
+void calculateSumAndAverage(std::vector<double>& numbers) {
     float sum = 0;
     int size = numbers.size();
 
@@ -19,7 +18,7 @@ void calculateSumAndAverage(vector<double>& numbers) {
     printVector(numbers);
 }
 
-void multiplyBySmallest(vector<double>& numbers) {
+void multiplyBySmallest(std::vector<double>& numbers) {
     float min = numbers[0];
 
     for (int i = 0; i < numbers.size(); i++) {
@@ -33,31 +32,31 @@ void multiplyBySmallest(vector<double>& numbers) {
     printVector(numbers);
 }
 
-void printVector(vector<double>& numbers) {
+void printVector(std::vector<double>& numbers) {
     for (int i = 0; i < numbers.size(); i++) {
-        cout << numbers[i] << ' ';
+        std::cout << numbers[i] << ' ';
     }
-    cout << "\n";
+    std::cout << "\n";
 }
 
 int main() {
-    cout.setf(ios::fixed);
-    cout.precision(3);
+    std::cout.setf(std::ios::fixed);
+    std::cout.precision(3);
 
     int capacity = 0;
     int size = 0;
-    cin >> size;
+    std::cin >> size;
     capacity = size + 1;
 
-    vector<double> numbers;
+    std::vector<double> numbers;
     numbers.resize(size);
     numbers.reserve(capacity);
 
     for (int i = 0; i < size; i++) {
-        cin >> numbers[i];
+        std::cin >> numbers[i];
     }
 
-    cout << numbers.size() << "\n";
+    std::cout << numbers.size() << "\n";
     printVector(numbers);
 
     calculateSumAndAverage(numbers);
@@ -66,17 +65,17 @@ int main() {
 
     while (true) {
         int choice;
-        cin >> choice;
+        std::cin >> choice;
 
         if (choice == 0)
             break;
 
         if (choice == 1) {
             float x = 0;
-            cin >> x;
+            std::cin >> x;
 
             numbers.push_back(x);
-            cout << "+: " << numbers.size() << '\n';
+            std::cout << "+: " << numbers.size() << '\n';
             printVector(numbers);
 
             calculateSumAndAverage(numbers);
@@ -85,7 +84,7 @@ int main() {
         };
         if (choice == 2) {
             numbers.pop_back();
-            cout << "-: " << numbers.size() << '\n';
+            std::cout << "-: " << numbers.size() << '\n';
             printVector(numbers);
 
             calculateSumAndAverage(numbers);
